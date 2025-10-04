@@ -61,7 +61,6 @@
             telefonePessoa: telefonePessoa
         };
 
-        // 4. A lógica de envio para /registrarEscolha permanece a mesma
         try {
             const response = await fetch('/registrarEscolha', {
                 method: 'POST',
