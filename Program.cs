@@ -15,7 +15,7 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader();
     });
 });
-Env.Load("C:\\Users\\Tiago\\Documents\\projetoDotnet\\projetoDotnet\\wwwroot\\.env");
+Env.Load();
 var connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");
 var databaseName = Environment.GetEnvironmentVariable("MONGODB_DATABASE");
 
@@ -30,9 +30,6 @@ builder.Services.AddScoped<IMongoCollection<Dados>>(sp =>
 });
 var app = builder.Build();
 app.UseCors("AllowAll");
-
-// USE O CORS ANTES de outros middlewares
-app.UseCors("AllowAll"); // ADICIONE ESTA LINHA
 
 app.UseHttpsRedirection();
 app.UseDefaultFiles();
@@ -68,10 +65,4 @@ public class Dados
     public string? Nome { get; set; }
     public string? Telefone { get; set; }
     public string? Item { get; set; }
-}
-
-public partial class Program
-{
-    public static List<Dados> Dados { get; } = new List<Dados>();
-    public static int ProximoId { get; set; } = 1;
 }
