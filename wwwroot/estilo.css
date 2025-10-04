@@ -1,0 +1,66 @@
+﻿
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Epunda Slab", serif;
+    background-color: ur;
+}
+
+
+.formcss {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+
+.divForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.divForm label {
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+
+
+.divForm input, .divForm select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+
+.formcss button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.formcss button:hover {
+    background-color: #45a049;
+}
+
+
+h2 {
+    font-size: 45px;
+    color: #333;
+    margin-bottom: 20px;
+}
