@@ -42,4 +42,4 @@ C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\Sprache.dl
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\ZstdSharp.dll
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\projetoDotnet.sourcelink.json
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\b4z5849eyf-7qrifx141z.gz
-C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\lqpdr5gzhj-mw2xrioipz.gz
+C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\lqpdr5gzhj-oqao1u783x.gz
