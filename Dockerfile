@@ -1,29 +1,26 @@
-﻿
+﻿# ===============================================================
+# Estágio 1: Compilação (Build) com .NET 9
+# ===============================================================
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /source
 
-# Copia o arquivo .csproj e restaura as dependências primeiro
-# ATENÇÃO: Troque "SeuProjeto.csproj" pelo nome real do seu arquivo .csproj
-COPY *.csproj .
+# Passo 1: Copia TODOS os arquivos do projeto para dentro do container
+COPY . .
+
+# Passo 2: Restaura as dependências
 RUN dotnet restore "./projetoDotnet.csproj"
 
-# Copia o resto do código-fonte e publica o aplicativo
-COPY . .
-# ATENÇÃO: Troque "SeuProjeto.csproj" novamente aqui
+# Passo 3: Publica o aplicativo
 RUN dotnet publish "./projetoDotnet.csproj" -c Release -o /app/publish --no-restore
 
 # ===============================================================
-# Estágio 2: Imagem Final (Runtime)
-# Aqui usamos uma imagem muito menor, apenas com o necessário para RODAR
-# o aplicativo, tornando-o mais leve e seguro.
+# Estágio 2: Imagem Final (Runtime) com .NET 9
 # ===============================================================
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 
-# Expõe a porta 80. O Render vai se conectar ao seu app através dela.
 EXPOSE 80
 
-# Comando para iniciar o servidor quando o container for ligado
-# ATENÇÃO: Troque "SeuProjeto.dll" pelo nome real do arquivo .dll do seu projeto
+# ATENÇÃO: Verifique se "projetoDotnet.dll" é o nome correto do seu arquivo .dll
 ENTRYPOINT ["dotnet", "projetoDotnet.dll"]
