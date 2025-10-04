@@ -37,8 +37,8 @@
         };
 
         // URLs do seu servidor
-        const urlCadastrar = 'http://localhost:5000/cadastrarItem';
-        const urlResposta = 'http://localhost:5000/resultado';
+        const urlCadastrar = 'https://sitecha1.onrender.com/cadastrarItem';
+        const urlResposta = 'https://sitecha1.onrender.com/resultado';
 
         // Tenta primeiro a URL principal de cadastro
         try {
