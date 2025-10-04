@@ -32,7 +32,6 @@ C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\refint\pro
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\projetoDotnet.pdb
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\projetoDotnet.genruntimeconfig.cache
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\ref\projetoDotnet.dll
-C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\b4z5849eyf-drqvqt4hvk.gz
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\DnsClient.dll
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\DotNetEnv.dll
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\MongoDB.Bson.dll
@@ -41,4 +40,6 @@ C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\SharpCompr
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\Snappier.dll
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\Sprache.dll
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\ZstdSharp.dll
-C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\lqpdr5gzhj-6ia0ypwu0f.gz
+C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\projetoDotnet.sourcelink.json
+C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\b4z5849eyf-7qrifx141z.gz
+C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\lqpdr5gzhj-mw2xrioipz.gz

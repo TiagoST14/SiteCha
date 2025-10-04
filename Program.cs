@@ -34,7 +34,7 @@ app.UseCors("AllowAll");
 // USE O CORS ANTES de outros middlewares
 app.UseCors("AllowAll"); // ADICIONE ESTA LINHA
 
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
