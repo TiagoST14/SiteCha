@@ -24,9 +24,10 @@
 
         // URLs possíveis do seu servidor C#
         const urls = [
-            'https://localhost:7000/contatos',
-            'http://localhost:5000/resultado',
-            'http://localhost:5000/cadastrarItem'
+            'https://localhost:7123/contatos',
+            'https://localhost:7123/resultado',
+            'https://localhost:7123/cadastrarItem'
+            
         ];
 
         const dados = {
