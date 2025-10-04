@@ -1,86 +1,80 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
-    const nomeInput = document.querySelector("#nome");
-    const telefoneInput = document.querySelector("#telefone");
-    const itemInput = document.querySelector('#item');
-    const botao = document.querySelector("#botao");
-    const resultadoP = document.querySelector("#resultado");
-    const form = document.querySelector("#meuForm"); // seleciona o formulário se existir
+﻿async function enviarDados() {
+    const nome = nomeInput.value;
+    const telefone = telefoneInput.value;
+    const item = itemInput.value;
 
-    // Se existe formulário, previne o comportamento padrão
-    if (form) {
-        form.addEventListener("submit", (event) => {
-            event.preventDefault(); // IMPEDE a submissão tradicional
-            enviarDados();
-        });
-    } else {
-        // Se não há formulário, usa o clique do botão
-        botao.addEventListener("click", enviarDados);
+    // Validação
+    if (!nome || !telefone || !item) {
+        resultadoP.textContent = "Por favor, preencha todos os campos!";
+        resultadoP.style.color = 'orange';
+        return;
     }
 
-    async function enviarDados() {
-        const nome = nomeInput.value;
-        const telefone = telefoneInput.value;
-        const item = itemInput.value;
+    const dados = {
+        nome: nome,
+        telefone: telefone,
+        item: item
+    };
 
-        // URLs possíveis do seu servidor C#
-        const urls = [
-            'http://localhost:5123/contatos',
-            'http://localhost:5123/resultado',
-            'http://localhost:5123/cadastrarItem'
-            
-        ];
+    // Tenta primeiro a URL principal
+    const UrlCadastrar = 'http://localhost:5000/cadastrarItem';
+    const UrlResposta = 'http://localhost:5000/resultado';
 
-        const dados = {
-            nome: nome,
-            telefone: telefone,
-            item: item
-        };
+    try {
+        console.log(`Enviando para: ${UrlCadastrar}`);
 
-        // Validação
-        if (!nome || !telefone || !item) {
-            resultadoP.textContent = "Por favor, preencha todos os campos!";
-            resultadoP.style.color = 'orange';
+        const response = await fetch(UrlCadastrar, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dados)
+        });
+
+        console.log(`Resposta: ${response.status}`);
+
+        if (response.ok) {
+            const dataCriada = await response.json();
+            resultadoP.textContent = `Produto "${dataCriada.item}" cadastrado com sucesso! (ID: ${dataCriada.nome})`;
+            resultadoP.style.color = 'green';
+
+            nomeInput.value = '';
+            telefoneInput.value = '';
+            itemInput.value = '';
             return;
         }
-
-        let success = false;
-
-        for (const url of urls) {
-            try {
-                console.log(`Tentando: ${url}`);
-
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(dados)
-                });
-
-                console.log(`Resposta: ${response.status}`);
-
-                if (response.ok) {
-                    const dataCriada = await response.json();
-                    resultadoP.textContent = `Produto "${dataCriada.item}" cadastrado com sucesso! (ID: ${dataCriada.nome})`;
-                    resultadoP.style.color = 'green';
-
-                    // Limpa os campos
-                    nomeInput.value = '';
-                    telefoneInput.value = '';
-                    itemInput.value = '';
-
-                    success = true;
-                    break;
-                }
-            } catch (error) {
-                console.log(`Falha em ${url}:`, error.message);
-                continue;
-            }
-        }
-
-        if (!success) {
-            resultadoP.textContent = "Erro ao conectar com o servidor.";
-            resultadoP.style.color = 'red';
-        }
+    } catch (error) {
+        console.log(`Falha em ${UrlCadastrar}, tentando alternativa...`);
     }
-});
+
+    // Se falhar, tenta a URL alternativa
+    try {
+        console.log(`Enviando para: ${UrlResposta}`);
+
+        const response = await fetch(UrlResposta, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(dados)
+        });
+
+        console.log(`Resposta: ${response.status}`);
+
+        if (response.ok) {
+            const dataCriada = await response.json();
+            resultadoP.textContent = `Produto "${dataCriada.item}" cadastrado com sucesso! (ID: ${dataCriada.nome})`;
+            resultadoP.style.color = 'green';
+
+            nomeInput.value = '';
+            telefoneInput.value = '';
+            itemInput.value = '';
+            return;
+        }
+    } catch (error) {
+        console.log(`Falha em ${UrlResposta}:`, error.message);
+    }
+
+    resultadoP.textContent = "Erro ao conectar com o servidor.";
+    resultadoP.style.color = 'red';
+}
