@@ -4,7 +4,7 @@
     const itemInput = document.querySelector('#item');
     const botao = document.querySelector("#botao");
     const resultadoP = document.querySelector("#resultado");
-    const form = document.querySelector("#meuForm"); // seleciona o formulário se existir
+    const form = document.querySelector("#meuForm");
 
     // Se existe formulário, previne o comportamento padrão
     if (form) {
@@ -16,90 +16,78 @@
         // Se não há formulário, usa o clique do botão
         botao.addEventListener("click", enviarDados);
     }
+    async function carregarItens() {
+        const response = await fetch('/presentesDisponiveis');
+        const itens = await response.json();
+
+        const selectElement = document.getElementById('item');
+        selectElement.innerHTML = '<option value="">Escolha o item</option>';
+
+        itens.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            // AJUSTE AQUI: de 'nomeDoPresente' para 'nome'
+            option.textContent = item.nome;
+            selectElement.appendChild(option);
+        });
+    }
+
+    carregarItens();
 
     // A função que faz o envio dos dados para o servidor
     async function enviarDados() {
-        const nome = nomeInput.value;
-        const telefone = telefoneInput.value;
-        const item = itemInput.value;
+        
+        const nomePessoa = nomeInput.value;
+        const telefonePessoa = telefoneInput.value;
 
-        // Validação
-        if (!nome || !telefone || !item) {
+        
+        const selectedIndex = itemInput.selectedIndex;
+        const presenteNome = itemInput.options[selectedIndex].text;
+
+       
+        const presenteIdValue = itemInput.value;
+
+        // 2. Validação
+        if (!nomePessoa || !telefonePessoa || !presenteIdValue) {
             resultadoP.textContent = "Por favor, preencha todos os campos!";
             resultadoP.style.color = 'orange';
             return;
         }
 
-        const dados = {
-            nome: nome,
-            telefone: telefone,
-            item: item
+        //ria o objeto 'escolha' no novo formato, com o nome do presente
+        const escolha = {
+            presenteNome: presenteNome, // << MUDANÇA AQUI
+            nomePessoa: nomePessoa,
+            telefonePessoa: telefonePessoa
         };
 
-        // URLs do seu servidor
-        const urlCadastrar = 'https://sitecha1.onrender.com/cadastrarItem';
-        const urlResposta = 'https://sitecha1.onrender.com/resultado';
-
-        // Tenta primeiro a URL principal de cadastro
+        // 4. A lógica de envio para /registrarEscolha permanece a mesma
         try {
-            console.log(`Enviando para: ${urlCadastrar}`);
-
-            const response = await fetch(urlCadastrar, {
+            const response = await fetch('/registrarEscolha', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(dados)
+                body: JSON.stringify(escolha)
             });
 
-            console.log(`Resposta: ${response.status}`);
-
             if (response.ok) {
-                const dataCriada = await response.json();
-                resultadoP.textContent = `Produto "${dataCriada.item}" cadastrado com sucesso! (ID: ${dataCriada.nome})`;
+                resultadoP.textContent = `Obrigado, ${nomePessoa}! Seu presente foi registrado com sucesso.`;
                 resultadoP.style.color = 'green';
 
-                // Limpa os campos após o sucesso
+                carregarItens();
+
                 nomeInput.value = '';
                 telefoneInput.value = '';
-                itemInput.value = '';
-                return; // Encerra a função aqui, pois deu tudo certo
+            } else {
+                const errorText = await response.text();
+                resultadoP.textContent = errorText;
+                resultadoP.style.color = 'red';
             }
         } catch (error) {
-            console.log(`Falha em ${urlCadastrar}, tentando alternativa...`, error.message);
+            resultadoP.textContent = "Erro de conexão com o servidor.";
+            resultadoP.style.color = 'red';
         }
-
-        // Se a primeira URL falhar (por qualquer motivo), tenta a segunda
-        try {
-            console.log(`Enviando para: ${urlResposta}`);
-
-            const response = await fetch(urlResposta, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(dados)
-            });
-
-            console.log(`Resposta: ${response.status}`);
-
-            if (response.ok) {
-                const dataCriada = await response.json();
-                resultadoP.textContent = `Produto "${dataCriada.item}" cadastrado com sucesso! (ID: ${dataCriada.nome})`;
-                resultadoP.style.color = 'green';
-
-                // Limpa os campos após o sucesso
-                nomeInput.value = '';
-                telefoneInput.value = '';
-                itemInput.value = '';
-                return; // Encerra a função aqui, pois deu tudo certo
-            }
-        } catch (error) {
-            console.log(`Falha em ${urlResposta}:`, error.message);
-        }
-
-        // Se ambas as tentativas falharem, exibe uma mensagem de erro final
-        resultadoP.textContent = "Erro ao conectar com o servidor.";
-        resultadoP.style.color = 'red';
     }
+
 });
