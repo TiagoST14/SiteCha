@@ -40,6 +40,6 @@ C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\Snappier.d
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\Sprache.dll
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\ZstdSharp.dll
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\projetoDotnet.sourcelink.json
-C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\b4z5849eyf-7qrifx141z.gz
-C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\lqpdr5gzhj-3xin5h4avf.gz
-C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\k9e6eiwhoi-g3e8ywyfu8.gz
+C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\lqpdr5gzhj-ci9x7zmd07.gz
+C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\b4z5849eyf-0m87slgv08.gz
+C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\k9e6eiwhoi-658lfk1a6g.gz
