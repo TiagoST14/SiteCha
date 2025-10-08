@@ -96,7 +96,7 @@ h2 {
 
     /* Reduz o tamanho dos ícones em telas menores */
     .icones-flutuantes  {
-            bottom: 10%;
+            bottom: 5%;
             right: 20px;
             margin-right: 7px;
             gap: 10px;
