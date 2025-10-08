@@ -40,9 +40,6 @@ C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\Snappier.d
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\Sprache.dll
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\bin\Debug\net9.0\ZstdSharp.dll
 C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\projetoDotnet.sourcelink.json
-C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\b4z5849eyf-7qrifx141z.gz
-C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\lqpdr5gzhj-3xin5h4avf.gz
-C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\k9e6eiwhoi-g3e8ywyfu8.gz
 C:\Users\Tiago\Documents\BACKUP-PROJETOS\projetoDotnet 0410\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\Tiago\Documents\BACKUP-PROJETOS\projetoDotnet 0410\bin\Debug\net9.0\appsettings.json
 C:\Users\Tiago\Documents\BACKUP-PROJETOS\projetoDotnet 0410\bin\Debug\net9.0\projetoDotnet.staticwebassets.endpoints.json
@@ -87,3 +84,6 @@ C:\Users\Tiago\Documents\BACKUP-PROJETOS\projetoDotnet 0410\obj\Debug\net9.0\pro
 C:\Users\Tiago\Documents\BACKUP-PROJETOS\projetoDotnet 0410\obj\Debug\net9.0\projetoDotnet.genruntimeconfig.cache
 C:\Users\Tiago\Documents\BACKUP-PROJETOS\projetoDotnet 0410\obj\Debug\net9.0\ref\projetoDotnet.dll
 C:\Users\Tiago\Documents\BACKUP-PROJETOS\projetoDotnet 0410\obj\Debug\net9.0\compressed\k9e6eiwhoi-658lfk1a6g.gz
+C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\lqpdr5gzhj-jwlcwydiky.gz
+C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\k9e6eiwhoi-32g1hcwc66.gz
+C:\Users\Tiago\Documents\projetoDotnet\projetoDotnet\obj\Debug\net9.0\compressed\b4z5849eyf-p75skr9y8u.gz

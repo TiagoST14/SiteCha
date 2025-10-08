@@ -1,4 +1,4 @@
-﻿
+﻿/* Estilos existentes para a maioria dos elementos */
 body {
     display: flex;
     flex-direction: column;
@@ -10,7 +10,6 @@ body {
     background-color: white;
 }
 
-
 .formcss {
     background-color: white;
     padding: 30px;
@@ -19,7 +18,6 @@ body {
     width: 100%;
     max-width: 400px;
 }
-
 
 .divForm {
     display: flex;
@@ -32,14 +30,12 @@ body {
     margin-bottom: -10px;
 }
 
-
 .divForm input, .divForm select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
 }
-
 
 .formcss button {
     width: 100%;
@@ -58,9 +54,62 @@ body {
     background-color: #45a049;
 }
 
-
 h2 {
     font-size: 45px;
     color: #333;
     margin-bottom: 20px;
+}
+/* Estilos para a maioria das telas */
+.icones-flutuantes {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    display: flex;
+    flex-direction: column; /* Organiza um abaixo do outro */
+    gap: 15px; /* Espaço entre os ícones */
+    align-items: flex-end; /* Alinha à direita */
+    z-index: 1000;
+}
+
+.whatsapp, .gps {
+    width: 50px; /* Tamanho padrão para telas maiores */
+    cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+    /* Ajustes para telas de celulares */
+    body {
+        height: auto; /* Permite o corpo crescer com o conteúdo */
+    }
+
+    .formcss {
+        padding: 20px; /* Reduz o padding em telas menores */
+    }
+
+    h2 {
+        font-size: 30px; /* Reduz o tamanho da fonte do cabeçalho */
+    }
+
+    /* Reduz o tamanho dos ícones em telas menores */
+    .icones-flutuantes  {
+            bottom: 330px;
+            right: 20px;
+            margin-right: 7px;
+            gap: 10px;
+        }
+
+        .whatsapp, .gps {
+            width: 40px;
+            
+            /* Garanta que não há margens estranhas */
+            margin: 0 !important;
+        }
+    }
+
+    /* Ajuste para os botões */
+    .formcss button {
+        padding: 10px;
+        font-size: 1rem;
+    }
 }

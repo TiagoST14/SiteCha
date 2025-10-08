@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tiago\\Documents\\BACKUP-PROJETOS\\projetoDotnet 0410\\projetoDotnet.csproj": {}
+    "C:\\Users\\Tiago\\Documents\\projetoDotnet\\projetoDotnet\\projetoDotnet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tiago\\Documents\\BACKUP-PROJETOS\\projetoDotnet 0410\\projetoDotnet.csproj": {
+    "C:\\Users\\Tiago\\Documents\\projetoDotnet\\projetoDotnet\\projetoDotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tiago\\Documents\\BACKUP-PROJETOS\\projetoDotnet 0410\\projetoDotnet.csproj",
+        "projectUniqueName": "C:\\Users\\Tiago\\Documents\\projetoDotnet\\projetoDotnet\\projetoDotnet.csproj",
         "projectName": "projetoDotnet",
-        "projectPath": "C:\\Users\\Tiago\\Documents\\BACKUP-PROJETOS\\projetoDotnet 0410\\projetoDotnet.csproj",
+        "projectPath": "C:\\Users\\Tiago\\Documents\\projetoDotnet\\projetoDotnet\\projetoDotnet.csproj",
         "packagesPath": "C:\\Users\\Tiago\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tiago\\Documents\\BACKUP-PROJETOS\\projetoDotnet 0410\\obj\\",
+        "outputPath": "C:\\Users\\Tiago\\Documents\\projetoDotnet\\projetoDotnet\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

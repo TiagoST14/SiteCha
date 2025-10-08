@@ -1,4 +1,5 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+﻿
+document.addEventListener("DOMContentLoaded", () => {
     const nomeInput = document.querySelector("#nome");
     const telefoneInput = document.querySelector("#telefone");
     const itemInput = document.querySelector('#item');
