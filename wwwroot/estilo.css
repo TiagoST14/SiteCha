@@ -78,6 +78,8 @@ h2 {
 
 
 @media (max-width: 600px) {
+    
+    
     /* Ajustes para telas de celulares */
     body {
         height: auto; /* Permite o corpo crescer com o conteúdo */
@@ -85,6 +87,7 @@ h2 {
 
     .formcss {
         padding: 20px; /* Reduz o padding em telas menores */
+        width: 75%;
     }
 
     h2 {
@@ -93,7 +96,7 @@ h2 {
 
     /* Reduz o tamanho dos ícones em telas menores */
     .icones-flutuantes  {
-            bottom: 330px;
+            bottom: 30%;
             right: 20px;
             margin-right: 7px;
             gap: 10px;
@@ -112,4 +115,3 @@ h2 {
         padding: 10px;
         font-size: 1rem;
     }
-}
