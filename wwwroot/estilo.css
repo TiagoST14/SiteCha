@@ -4,14 +4,16 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    max-height: 100vh;
     margin: 0;
     font-family: "Epunda Slab", serif;
     background-color: white;
+    background-image: url("./img/background.jpg");
+    
 }
 
 .formcss {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.92);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -41,7 +43,7 @@ body {
     width: 100%;
     padding: 12px;
     margin-top: 20px;
-    background-color: #4CAF50;
+    background-color: rgba(244, 162, 97, 0.88);
     color: white;
     border: none;
     border-radius: 5px;
@@ -51,14 +53,33 @@ body {
 }
 
 .formcss button:hover {
-    background-color: #45a049;
+    background-color: #2A9D8F;
 }
 
 h2 {
     font-size: 45px;
     color: #333;
-    margin-bottom: 20px;
+    margin: 0px;
+    padding-bottom: 15px;
+    
 }
+div.imgs {
+    display: flex;
+    
+    width:100px;
+    height:150px;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+img.imgcha{
+    margin-bottom: 5px;
+    padding: 0;
+    margin: 0;
+    width:150px;
+    height:150px;
+}
+
 /* Estilos para a maioria das telas */
 .icones-flutuantes {
     position: fixed;
@@ -69,6 +90,10 @@ h2 {
     gap: 15px; /* Espaço entre os ícones */
     align-items: flex-end; /* Alinha à direita */
     z-index: 1000;
+}
+footer{
+    font-family: "Epunda Slab", serif;
+    font-size:  small; 
 }
 
 .whatsapp, .gps {
