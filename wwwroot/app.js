@@ -1,5 +1,4 @@
-﻿
-document.addEventListener("DOMContentLoaded", () => {
+﻿document.addEventListener("DOMContentLoaded", () => {
     const nomeInput = document.querySelector("#nome");
     const telefoneInput = document.querySelector("#telefone");
     const itemInput = document.querySelector('#item');
@@ -7,19 +6,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultadoP = document.querySelector("#resultado");
     const form = document.querySelector("#meuForm");
 
-    // Se existe formulário, previne o comportamento padrão
+   
+    const loadingOverlay = document.querySelector("#loading-overlay");
+
     if (form) {
         form.addEventListener("submit", (event) => {
-            event.preventDefault(); // IMPEDE a submissão tradicional
+            event.preventDefault();
             enviarDados();
         });
     } else {
-        // Se não há formulário, usa o clique do botão
         botao.addEventListener("click", enviarDados);
     }
+
     async function carregarItens() {
+      
         const response = await fetch('/presentesDisponiveis');
         const itens = await response.json();
+        
 
         const selectElement = document.getElementById('item');
         selectElement.innerHTML = '<option value="">Escolha o item</option>';
@@ -27,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
         itens.forEach(item => {
             const option = document.createElement('option');
             option.value = item.id;
-            // AJUSTE AQUI: de 'nomeDoPresente' para 'nome'
             option.textContent = item.nome;
             selectElement.appendChild(option);
         });
@@ -35,34 +37,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     carregarItens();
 
-    // A função que faz o envio dos dados para o servidor
     async function enviarDados() {
-        
+
         const nomePessoa = nomeInput.value;
         const telefonePessoa = telefoneInput.value;
-
-        
         const selectedIndex = itemInput.selectedIndex;
         const presenteNome = itemInput.options[selectedIndex].text;
-
-       
         const presenteIdValue = itemInput.value;
 
-        // 2. Validação
         if (!nomePessoa || !telefonePessoa || !presenteIdValue) {
             resultadoP.textContent = "Por favor, preencha todos os campos!";
             resultadoP.style.color = 'orange';
             return;
         }
 
-        //ria o objeto 'escolha' no novo formato, com o nome do presente
+        
+        
+        
+        loadingOverlay.classList.remove('loader-hidden');
+        botao.disabled = true;
+        resultadoP.textContent = '';
+        await new Promise(resolve => setTimeout(resolve, 2000));
         const escolha = {
-            presenteNome: presenteNome, // << MUDANÇA AQUI
+            presenteNome: presenteNome,
             nomePessoa: nomePessoa,
             telefonePessoa: telefonePessoa
         };
 
-        // 4. A lógica de envio para /registrarEscolha permanece a mesma
         try {
             const response = await fetch('/registrarEscolha', {
                 method: 'POST',
@@ -75,11 +76,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if (response.ok) {
                 resultadoP.textContent = `Obrigado, ${nomePessoa}! Seu presente foi registrado com sucesso.`;
                 resultadoP.style.color = 'green';
-
                 carregarItens();
-
                 nomeInput.value = '';
                 telefoneInput.value = '';
+                itemInput.value = ''; 
             } else {
                 const errorText = await response.text();
                 resultadoP.textContent = errorText;
@@ -88,7 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             resultadoP.textContent = "Erro de conexão com o servidor.";
             resultadoP.style.color = 'red';
+        } finally {
+            
+            loadingOverlay.classList.add('loader-hidden');
+            botao.disabled = false;
         }
     }
-
 });
